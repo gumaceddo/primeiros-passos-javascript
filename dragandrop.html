@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+
+        <style>
+            li{
+                color: white;
+            }
+        h2{
+            color: rgb(255, 255, 255);
+        }
+        body{
+            background: url("https://img.freepik.com/fotos-gratis/parede-texturizada-cinza_53876-88964.jpg?size=626&ext=jpg");
+        }
+        #div1 {
+            width: 350px;
+            height: auto;
+            padding: 10px;
+            border: 1px solid #98e6db;
+            border-radius: 10px;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.555);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18pt;
+        }
+    </style>
+        <script>
+
+        //Evento permite que voce solte o elemento Html
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        
+        //Evento disparado ao arrastar o Elemento Html
+        function drag(ev) {
+            ev
+                .dataTransfer
+                .setData("text", ev.target.id);
+
+            ev  
+                .currentTarget
+                .style
+                .backgroundColor = 'rgb(238, 158, 158)';
+        }
+
+
+        //Evento Responsavel por recepcionar o Elemento Html
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+
+        }
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
+
+    <body ondrop="drop(event)" ondragover="allowDrop(event)">
+
+        <h2 >Arraste para a Div</h2>
+        <br><br>
+
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <br>
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <br>
+        <tr>
+            <ul>
+                <li id="drag1" draggable="true" ondragstart="drag(event)">Comer</li>
+                <br>
+                <li id="drag2" draggable="true" ondragstart="drag(event)">Sair</li>
+                <br>
+                <li id="drag3" draggable="true" ondragstart="drag(event)">Estudar</li>
+                <br>
+                <li id="drag4" draggable="true" ondragstart="drag(event)">Sair</li>
+                <br>
+                <li id="drag5" draggable="true" ondragstart="drag(event)">Sair</li>
+                <!--   <li>Correr</li>
+                <li>Dormir</li>
+                <li>Jogar</li>
+            </ul>  -->
+            </tr>
+            <!--  <img id="drag1" src="cavalo.png" draggable="true"
+            ondragstart="drag(event)" width="336" height="69">  -->
+            <br>
+            <!--   <img id="drag2" src="cavalo2.png" draggable="true"
+            ondragstart="drag(event)" width="336" height="69">   -->
+        </body>
+
+    </html>
